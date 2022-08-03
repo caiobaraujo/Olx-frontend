@@ -29,7 +29,7 @@ const Header = () => {
               <>
                 <li><Link to="/my-account">Minha Conta</Link></li>
                 <li><button onClick={handleLogout}>Sair</button></li>
-                <li><Link to="/post-an-add" className="button">Poste um anúncio +</Link></li>
+                <li><Link to="/post-an-ad" className="button">Poste um anúncio +</Link></li>
                 
               </>
               :
