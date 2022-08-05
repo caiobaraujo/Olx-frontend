@@ -12,7 +12,7 @@ export default (props) => {
             <div className="itemName">
               {props.data.title}
             </div>
-            <div className="itemPrice">...</div>
+            <div className="itemPrice">R$ {props.data.price}</div>
           </Link>
         </AdItem>
       );

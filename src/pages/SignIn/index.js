@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { PageArea } from './styled';
 import useAPI from '../../helpers/OlxAPI';
 import { doLogin } from '../../helpers/AuthHandler';
-import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
+import { PageContainer, PageTitle, ErrorMessage, LoginMessage } from '../../components/MainComponents';
+import { useLocation } from 'react-router-dom';
 
 const Page = () => {
     const api = useAPI();
+    
+
+    const { state } = useLocation();
+    
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -51,6 +56,11 @@ const Page = () => {
                     error && <ErrorMessage>Email ou senha estao errados!</ErrorMessage>
 
                 }
+                {
+                    state && <LoginMessage>{state.txt}</LoginMessage>
+
+                }
+                
                 <form onSubmit={handleSubmit}>
                     <label className="area">
                         <div className="area--title">E-mail:</div>

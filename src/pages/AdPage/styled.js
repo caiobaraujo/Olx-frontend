@@ -115,16 +115,16 @@ export const PageArea = styled.div`
   .rightSide {
     width: 250px;
     .price span {
-      color: rgb(110,10,214);
+      color: #00F;
       display: block;
       font-size: 27px;
       font-weight: bold;
     };
     .box-blue{
-      background-color: rgb(110,10,214);
+      background-color: #00F;
     };
     .contactSellerLink {
-      background-color: rgb(110,10,214);
+      background-color: #00F;
       color: #fff;
       height: 30px;
       border-radius: 5px;

@@ -19,7 +19,7 @@ const Page = () => {
   useEffect(() => {
     const getStates = async () => {
       const slist = await api.getStates();
-      console.log("O estado list é:",slist);
+      
       setStateList(slist);
     };
     getStates();

@@ -20,4 +20,12 @@ export const ErrorMessage = styled.div`
     padding: 10px;
     `;
 
+ export const LoginMessage = styled.div`
+    margin: 10px 0;
+    background-color: #cacaff;
+    color: #000000;
+    border: 1px solid #0000ff;
+    padding: 10px;
+    `;
+
 

@@ -39,7 +39,7 @@ const Page = () => {
             sort:'desc',
             limit: 8
           });
-          console.log(json.ads);
+          
           setAdList(json.ads);
         };
         getRecentAds();   
