@@ -88,8 +88,10 @@ export const PageArea = styled.div `
       font-size: 18px;
     };
     .listWarning {
-      padding: 30px;
-      padding-top: 0;
+      padding: 10px;
+      margin: 40px 140px;
+      background-color: #fff;
+      border: 1px solid #9bb83c;
       text-align: center;
     };
     .list {

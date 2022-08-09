@@ -24,28 +24,31 @@ const Page = () => {
     const [cat, setCat] = useState(query.get('cat') != null ? query.get('cat') : '');
     const [state, setState] = useState(query.get('state') != null ? query.get('state') : '');
 
+    const [adsTotal, setAdsTotal] = useState(0);
     const [stateList, setStateList] = useState([]);
     const [categories, setCategories] = useState([]);
     const [adList, setAdList] = useState([]);
-    const [adsTotal, setAdsTotal] = useState(0);
-    const [pagination, setPagination] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    
     const [lastPageDisplay, setLastPageDisplay] = useState(false);
     const [nextPageDisplay, setNextPageDisplay] = useState(false);
-    const [currentPage, setCurrentPage] = useState(null);
+    const [currentPage, setCurrentPage] = useState(1);
     const [resultOpacity, setResultOpacity] = useState(1);
-    const [warningMessage, setWarningMessage] = useState('');
+    
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(true);
+    
 
     const getAdsList = async () => {
       
-  
+      let offset = (currentPage -1 ) * 2;
+
       const json = await api.getAds({
         sort: 'desc',
-        limit: 8,
+        limit: 2,
         q,
         cat,
-        state
+        state,
+        offset 
         
       });
       if (json.error) {
@@ -55,16 +58,27 @@ const Page = () => {
         };
   
         setError(true);
-        setWarningMessage(jsonErrors.join(', '));
+        
       } else {
         setAdList(json.ads);
         setAdsTotal(json.total);
         setResultOpacity(1);
-        setWarningMessage('');
+        
         setError(false);
       };
     };
 
+    useEffect(()=>{
+      if(adList.length > 0){
+      setPageCount(Math.ceil(adsTotal / adList.length));
+      } else {
+        setPageCount(0);
+      }
+    },[adsTotal])
+
+    useEffect(()=>{
+      getAdsList();
+    },[currentPage])
     useEffect(() => {
       let queryString = []
 
@@ -84,7 +98,8 @@ const Page = () => {
         clearTimeout(timer);
       }
       timer = setTimeout(getAdsList, 1000);
-      setResultOpacity(0.3);   
+      setResultOpacity(0.3);  
+      setCurrentPage(1); 
 
       
   }, [q, cat, state]);
@@ -122,7 +137,10 @@ const Page = () => {
         
       }, []);
 
-     
+      let pagination = [];
+     for(let i = 0; i < pageCount; i++){
+       pagination.push(i+1)
+     }
 
     return (
        <PageContainer>
@@ -166,12 +184,31 @@ const Page = () => {
             </div>
             <div className="rightSide">
               <h2>Resultados:</h2>
+              {adList.length === 0 &&
+              <div 
+               className="listWarning"
+               style={{opacity: resultOpacity}}>
+                Ops! Nenhum anúncio foi encontrado.
+              </div>
+               }
               <div className="list" style={{opacity: resultOpacity}}>
                 {adList.map((i,k) =>
                   <AdItem key={k} data={i}/>
                 )}
 
               </div>
+              <div className="pagination">
+                {pagination.map((i,k) =>
+                    <div
+                    onClick={() => setCurrentPage(i)}
+                    className={i === currentPage ? 'pagItem active' : 'pagItem'}
+                    key={k}
+                  >
+                    {i}
+                  </div>
+                )}
+              </div>
+
             </div>
           </PageArea>
        </PageContainer>

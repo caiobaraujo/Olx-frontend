@@ -130,6 +130,13 @@ const OlxAPI =  {
             formData
         );
         return json;
+    },
+    getUserInfo: async (token) => {
+        const json = await apiFetchGet(
+            '/user/me',
+            {token}
+        );
+        return json;
     }
 
 }

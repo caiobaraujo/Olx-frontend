@@ -85,6 +85,10 @@ h2 {
   margin: 20px 0;
   display: flex;
   flex-wrap: wrap;
+
+  .aditem {
+    width: 25%;
+  }
 }
 .seeAllLink {
     color: #000;

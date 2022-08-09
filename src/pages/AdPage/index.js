@@ -67,7 +67,7 @@ const Page = () => {
     };
 
     
-
+    
     return (
          <PageContainer>
           {adInfo.category && 
@@ -154,7 +154,7 @@ const Page = () => {
                   Criado por:
                  <strong>{adInfo.userInfo.name}</strong>
                     <small>E-mail: {adInfo.userInfo.email}</small>
-                    <small>Estado: {adInfo.userInfo.state}</small>
+                    <small>Estado: {adInfo.stateName}</small>
                   </div>
                   </>
                 }

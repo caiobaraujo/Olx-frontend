@@ -41,6 +41,7 @@ const Page = () => {
           });
           
           setAdList(json.ads);
+          console.log(json.ads);
         };
         getRecentAds();   
         
