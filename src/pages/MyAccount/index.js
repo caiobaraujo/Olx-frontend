@@ -5,6 +5,7 @@ import { doLogin } from '../../helpers/AuthHandler';
 import { PageContainer, PageTitle, ErrorMessage } from '../../components/MainComponents';
 import AdItem from '../../components/partials/AdItem';
 import AdItemAccount from '../../components/partials/AdItemAccount';
+import Modal from '../../components/partials/Modal';
 
 const Page = () => {
     const api = useAPI();
@@ -20,6 +21,7 @@ const Page = () => {
 
   const [userInfo, setUserInfo] = useState([]);
   const [adList, setAdList] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -37,7 +39,9 @@ const Page = () => {
   
 
     return (
+      
          <PageContainer>
+          
             <PageTitle>Minha Conta</PageTitle>
             <PageArea>
                 <div className="user-area">
@@ -53,8 +57,15 @@ const Page = () => {
                       <div className="area-title">
                       Estado: {userInfo.state}
                       </div>
-                      <button className='button'>Alterar Informações</button>
-
+                      <button
+                            className="openModalBtn"
+                            onClick={() => {
+                              setModalOpen(true);
+                            }}
+                          >
+                            Open
+                      </button>
+                      {modalOpen && <Modal setOpenModal={setModalOpen} />} 
                       <div className="ads-area">
                         <h2>Seus anúncios</h2>
                         <div className="list">

@@ -3,7 +3,7 @@ import qs from 'qs';
 
 const BASEAPI = 'http://localhost:5000';
 
-const apiFetchFile = async (endpoint, body ) => { // tentar depois body = []
+const apiFetchFile = async (endpoint, body ) => { 
     if(!body.token) {
         let token = Cookies.get('token');
         if(token) {
@@ -28,6 +28,28 @@ const apiFetchFile = async (endpoint, body ) => { // tentar depois body = []
   
     return json;
 }
+
+const apiFetchPut = async (endpoint, body) => {
+    if(!body.token) {
+        let token = Cookies.get('token');
+        if(token) {
+           // body.append('token', token);
+           body.token = token;
+        }
+    }
+    const res = await fetch(BASEAPI + endpoint, {
+        method: 'PUT',
+        body
+    });
+    const json = await res.json();
+    if(json.notallowed) {
+        window.location.href = '/signin';
+        return
+    }
+    return json;
+}
+
+        
 
 const apiFetchPost = async (endpoint, body) => {
 
@@ -137,7 +159,15 @@ const OlxAPI =  {
             {token}
         );
         return json;
+    },
+    editUserInfo: async (token,name,email,state, password) => {
+        const json = await apiFetchPut(
+            '/user/me',
+            {token,name,email,state, password}
+        );
+        return json;
     }
+    
 
 }
 

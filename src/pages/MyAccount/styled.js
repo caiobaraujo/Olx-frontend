@@ -39,6 +39,8 @@ export const PageArea = styled.div`
       
     }
 
+   
+
     .ads-area {
       
 

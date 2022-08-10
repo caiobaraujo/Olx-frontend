@@ -37,8 +37,8 @@ export default (props) => {
             </div>
           </Link>
           <div className="buttons">
-          <button className="btn-2"  onClick={() => props.onEdit(props.data.id)}>Editar</button>
-          <button className="btn-1" onClick={() => props.onDelete(props.data.id)}>Excluir</button>
+          <button className="btn-2" >Editar</button>
+          <button className="btn-1" >Excluir</button>
           
           </div>
           </div>
