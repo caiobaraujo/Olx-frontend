@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import qs from 'qs';
 
-const BASEAPI = 'http://localhost:5000';
+const BASEAPI = process.env.REACT_APP_API_URL;
 
 const apiFetchFile = async (endpoint, body ) => { 
     if(!body.token) {
