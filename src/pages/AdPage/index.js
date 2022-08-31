@@ -154,7 +154,7 @@ const Page = () => {
                   Criado por:
                  <strong>{adInfo.userInfo.name}</strong>
                     <small>E-mail: {adInfo.userInfo.email}</small>
-                    <small>Estado: {adInfo.stateName}</small>
+                    <small>Cidade: {adInfo.stateName}</small>
                   </div>
                   </>
                 }

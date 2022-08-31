@@ -7,11 +7,7 @@ import Footer from './components/partials/Footer';
 
 
 const App = () => {
-
   
-
-  
-
   return (
     
     <div>

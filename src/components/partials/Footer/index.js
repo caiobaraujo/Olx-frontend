@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <FooterArea>
          Todos os direitos reservados <br/>
-         Olx Clone - Caio Araujo
+         JFMarket - Caio Araujo
         </FooterArea>
     );
     }

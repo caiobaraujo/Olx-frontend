@@ -55,7 +55,7 @@ const Page = () => {
                       </div>
 
                       <div className="area-title">
-                      Estado: {userInfo.state}
+                      Cidade: {userInfo.state}
                       </div>
                       <button
                             className="openModalBtn"

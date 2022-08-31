@@ -57,7 +57,7 @@ const Page = () => {
 
                 }
                 {
-                    state && <LoginMessage>{state.txt}</LoginMessage>
+                    state && !error && <LoginMessage>{state.txt}</LoginMessage>
 
                 }
                 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SearchArea = styled.div`
     background-color: #ddd;
-    padding: 20px 0;
+    padding:  0;
     border-bottom: 1px solid #ccc;
 
     .searchBox {
@@ -97,6 +97,20 @@ h2 {
     display: inline-block;
     margin-top: 10px;
 }
+`;
+
+export const PageTitle = styled.div`
+
+  background-color: #ff8c00;
+  padding: 5px;
+  margin-bottom: 20px;
+  h2{
+    margin: 0;
+    padding: 0;
+    color:  #000;
+    text-align: center;
+  }
+
 `;
 
 

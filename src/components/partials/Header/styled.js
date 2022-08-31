@@ -14,23 +14,16 @@ export const HeaderArea = styled.header`
     text-decoration: none;
   };
   .logo {
-    height: 60px;
+    
     flex: 1;
-    display: flex;
-    align-items: center;
-    .logo-1, .logo-2, .logo-3{
-      font-size: 27px;
-      font-weight: bold;
-    };
-    .logo-1 {
-      color: rgb(110, 10, 214);
-    };
-    .logo-2 {
-      color: rgb(140, 229, 99);
-    };
-    .logo-3 {
-      color: rgb(242, 128, 0);
-    };
+    
+    img {
+      height: 50px;
+      width: 200px;
+      object-fit: contain;
+      float: left;
+    }
+  
   };
   nav {
     padding: 10px 0;

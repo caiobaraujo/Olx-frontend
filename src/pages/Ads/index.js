@@ -154,7 +154,7 @@ const Page = () => {
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
                   />
-                <div className='filterName'>Estado</div> 
+                <div className='filterName'>Cidade</div> 
                   <select 
                     name="state" 
                     value={state} 

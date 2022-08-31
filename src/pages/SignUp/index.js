@@ -80,7 +80,7 @@ const Page = () => {
                     </div>
                 </label>
                 <label className="area">
-                    <div className="area--title">Estado:</div>
+                    <div className="area--title">Cidade:</div>
                     <div className="area--input">
                         <select
                           value={stateLoc}
